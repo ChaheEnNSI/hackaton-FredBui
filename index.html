@@ -14,7 +14,7 @@
     }
 
     header {
-      padding: 60px 20px;
+      padding: 70px 20px;
       text-align: center;
     }
 
@@ -28,84 +28,130 @@
       opacity: 0.9;
     }
 
+    section {
+      padding: 60px 20px;
+    }
+
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 40px 20px;
     }
 
+    h2.section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      color: #00e6ff;
+    }
+
+    /* ===== TEAM ===== */
     .team {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 30px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
       padding: 30px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
     }
 
-    .card h2 {
-      margin-bottom: 10px;
+    .card h3 {
       font-size: 1.6rem;
+      margin-bottom: 5px;
     }
 
     .role {
+      color: #00ffcc;
       font-weight: bold;
-      color: #00e6ff;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
-    .linkedin,
-    .portfolio,
-    .veille {
+    .links a {
       display: inline-block;
-      margin-bottom: 10px;
+      margin: 6px;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
       font-weight: bold;
       text-decoration: none;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .links a:hover {
+      transform: scale(1.05);
+      opacity: 0.85;
     }
 
     .linkedin {
-      color: #0a66c2;
-    }
-
-    .linkedin:hover {
-      color: #4aa3ff;
-      text-decoration: underline;
+      background: #0a66c2;
+      color: #fff;
     }
 
     .portfolio {
-      color: #ffdd00;
-    }
-
-    .portfolio:hover {
-      color: #fff466;
-      text-decoration: underline;
-    }
-
-    .veille {
-      color: #00ff9c;
-    }
-
-    .veille:hover {
-      color: #7dffd3;
-      text-decoration: underline;
+      background: #ffb703;
+      color: #1a1a1a;
     }
 
     .card p {
       font-size: 0.95rem;
       line-height: 1.6;
       opacity: 0.9;
-      margin-top: 10px;
+      margin-top: 15px;
+    }
+
+    /* ===== VEILLE ===== */
+    .veille-section {
+      background: rgba(0, 0, 0, 0.25);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .veille-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .veille-card {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .veille-card h3 {
+      margin-bottom: 10px;
+      color: #7dffd3;
+    }
+
+    .veille-card p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+
+    .veille-card a {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #00c896;
+      color: #0a1a1a;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .veille-card a:hover {
+      transform: scale(1.05);
     }
 
     footer {
@@ -124,81 +170,99 @@
     <p>Une équipe passionnée (de bras cassés) mais qui aiment les défis (pas sûr)</p>
   </header>
 
-  <main class="container">
-    <section class="team">
+  <!-- ÉQUIPE -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Notre équipe</h2>
 
-      <!-- Julien -->
-      <div class="card">
-        <h2>Julien Brouillac</h2>
-        <div class="role">Développeur</div>
+      <div class="team">
 
-        <a class="linkedin" href="https://www.linkedin.com/in/julien-brouillac" target="_blank">
-          Voir le LinkedIn
-        </a><br>
+        <div class="card">
+          <h3>Julien Brouillac</h3>
+          <div class="role">Développeur</div>
+          <div class="links">
+            <a class="linkedin" href="https://www.linkedin.com/in/julien-brouillac" target="_blank">LinkedIn</a>
+            <a class="portfolio" href="https://julienbrouillac-portfolio.com" target="_blank">Portfolio</a>
+          </div>
+          <p>
+            Spécialisé dans le développement, Julien a été sacré meilleur développeur
+            d'Europe après le drame de Jian Tan avec la faille xz.
+          </p>
+        </div>
 
-        <a class="portfolio" href="https://julienbrouillac-portfolio.com" target="_blank">
-          Voir le Portfolio
-        </a><br>
+        <div class="card">
+          <h3>Timéo Laubignat</h3>
+          <div class="role">DevOps</div>
+          <div class="links">
+            <a class="linkedin" href="https://www.linkedin.com/in/timeo-laubignat" target="_blank">LinkedIn</a>
+            <a class="portfolio" href="https://timeolaubignat-portfolio.com" target="_blank">Portfolio</a>
+          </div>
+          <p>
+            Expert en automatisation, déploiement et infrastructure, Timéo sait
+            comment parler aux machines virtuelles.
+          </p>
+        </div>
 
-        <a class="veille" href="https://github.com/collections/machine-learning" target="_blank">
-          Veille technologique BTS SIO – Développement
-        </a>
+        <div class="card">
+          <h3>Chahé Papazian</h3>
+          <div class="role">Chef de projet</div>
+          <div class="links">
+            <a class="linkedin" href="https://www.linkedin.com/in/chahe-papazian" target="_blank">LinkedIn</a>
+            <a class="portfolio" href="https://chahepapazian-portfolio.com" target="_blank">Portfolio</a>
+          </div>
+          <p>
+            Responsable de la coordination et de la vision globale, Chahé veille
+            au respect des délais et de la cohésion de l'équipe.
+          </p>
+        </div>
 
-        <p>
-          Spécialisé dans le développement, Julien a été sacré meilleur développeur
-          d'Europe après le drame de Jian Tan avec la faille xz.
-        </p>
       </div>
+    </div>
+  </section>
 
-      <!-- Timéo -->
-      <div class="card">
-        <h2>Timéo Laubignat</h2>
-        <div class="role">DevOps</div>
+  <!-- VEILLE TECHNO -->
+  <section class="veille-section">
+    <div class="container">
+      <h2 class="section-title">Veille technologique – BTS SIO</h2>
 
-        <a class="linkedin" href="https://www.linkedin.com/in/timeo-laubignat" target="_blank">
-          Voir le LinkedIn
-        </a><br>
+      <div class="veille-grid">
 
-        <a class="portfolio" href="https://timeolaubignat-portfolio.com" target="_blank">
-          Voir le Portfolio
-        </a><br>
+        <div class="veille-card">
+          <h3>Développement & Sécurité</h3>
+          <p>
+            Veille axée sur les frameworks modernes, l’intelligence artificielle,
+            la sécurité applicative et l’open-source.
+          </p>
+          <a href="https://github.com/collections/machine-learning" target="_blank">
+            Accéder à la veille
+          </a>
+        </div>
 
-        <a class="veille" href="https://www.cncf.io/blog/" target="_blank">
-          Veille technologique BTS SIO – DevOps & Cloud
-        </a>
+        <div class="veille-card">
+          <h3>DevOps, Cloud & CI/CD</h3>
+          <p>
+            Suivi des technologies cloud natives, conteneurisation, automatisation
+            et cybersécurité des infrastructures.
+          </p>
+          <a href="https://www.cncf.io/blog/" target="_blank">
+            Accéder à la veille
+          </a>
+        </div>
 
-        <p>
-          Expert en automatisation, déploiement et infrastructure, Timéo sait
-          comment parler aux machines virtuelles et apprend aux jeunes à hacker Microsoft.
-        </p>
+        <div class="veille-card">
+          <h3>Gestion de projet & Agile</h3>
+          <p>
+            Méthodes agiles, outils collaboratifs, organisation d’équipe et
+            bonnes pratiques de gestion de projet informatique.
+          </p>
+          <a href="https://www.atlassian.com/agile" target="_blank">
+            Accéder à la veille
+          </a>
+        </div>
+
       </div>
-
-      <!-- Chahé -->
-      <div class="card">
-        <h2>Chahé Papazian</h2>
-        <div class="role">Chef de projet</div>
-
-        <a class="linkedin" href="https://www.linkedin.com/in/chahe-papazian" target="_blank">
-          Voir le LinkedIn
-        </a><br>
-
-        <a class="portfolio" href="https://chahepapazian-portfolio.com" target="_blank">
-          Voir le Portfolio
-        </a><br>
-
-        <a class="veille" href="https://www.atlassian.com/agile" target="_blank">
-          Veille technologique BTS SIO – Gestion de projet
-        </a>
-
-        <p>
-          Responsable de la coordination et de la vision globale, Chahé veille
-          au respect des délais, des objectifs et à la cohésion de l'équipe.
-          Il tape sur les doigts si le travail n'est pas réalisé.
-        </p>
-      </div>
-
-    </section>
-  </main>
+    </div>
+  </section>
 
   <footer>
     © 2026 – Team Hackathon
