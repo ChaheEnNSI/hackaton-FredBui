@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,6 +6,10 @@
   <title>Team Hackathon</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -15,7 +18,7 @@
     }
 
     header {
-      padding: 70px 20px;
+      padding: 80px 20px;
       text-align: center;
     }
 
@@ -26,248 +29,285 @@
 
     header p {
       font-size: 1.2rem;
-      opacity: 0.9;
+      opacity: 0.85;
     }
 
     section {
-      padding: 60px 20px;
+      padding: 80px 20px;
     }
 
     .container {
       max-width: 1100px;
-      margin: 0 auto;
+      margin: auto;
     }
 
-    h2.section-title {
+    .section-title {
       text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 40px;
+      font-size: 2.4rem;
+      margin-bottom: 60px;
       color: #00e6ff;
     }
 
     /* ===== TEAM ===== */
     .team {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
     }
 
     .card {
       background: rgba(255, 255, 255, 0.12);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 30px;
       text-align: center;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
+      transform: translateY(-10px);
+      box-shadow: 0 30px 55px rgba(0, 0, 0, 0.6);
+    }
+
+    /* ===== IMAGES ===== */
+    .image-wrapper {
+      margin-bottom: 25px;
+      cursor: pointer;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 18px;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .image-wrapper:hover img {
+      transform: scale(1.08);
+      box-shadow: 0 25px 45px rgba(0, 255, 200, 0.6);
     }
 
     .card h3 {
       font-size: 1.6rem;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .role {
       color: #00ffcc;
       font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .links a {
-      display: inline-block;
-      margin: 6px;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      text-decoration: none;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .links a:hover {
-      transform: scale(1.05);
-      opacity: 0.85;
-    }
-
-    .linkedin {
-      background: #0a66c2;
-      color: #fff;
-    }
-
-    .portfolio {
-      background: #ffb703;
-      color: #1a1a1a;
+      margin-bottom: 12px;
     }
 
     .card p {
       font-size: 0.95rem;
-      line-height: 1.6;
       opacity: 0.9;
-      margin-top: 15px;
     }
 
     /* ===== VEILLE ===== */
     .veille-section {
-      background: rgba(0, 0, 0, 0.25);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.35);
     }
 
     .veille-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      gap: 35px;
     }
 
     .veille-card {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
-      padding: 25px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     }
 
     .veille-card h3 {
-      margin-bottom: 10px;
       color: #7dffd3;
+      margin-bottom: 10px;
     }
 
     .veille-card p {
       font-size: 0.95rem;
+      margin-bottom: 20px;
       opacity: 0.9;
-      margin-bottom: 15px;
     }
 
     .veille-card a {
       display: inline-block;
-      padding: 10px 16px;
+      padding: 12px 20px;
       background: #00c896;
       color: #0a1a1a;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: bold;
       text-decoration: none;
-      transition: transform 0.2s ease;
+      transition: transform 0.25s ease;
     }
 
     .veille-card a:hover {
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
 
     footer {
       text-align: center;
-      padding: 30px 20px;
+      padding: 40px 20px;
       font-size: 0.9rem;
       opacity: 0.7;
+    }
+
+    /* ===== OVERLAY IMAGE ===== */
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 10, 15, 0.85);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      z-index: 9999;
+    }
+
+    #overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .overlay-image {
+      width: 70%;
+      max-width: 900px;
+      height: 70%;
+      background-size: cover;
+      background-position: center;
+      border-radius: 25px;
+      transform: scale(0.7) rotate(-5deg);
+      animation: zoomIn 0.6s ease forwards;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2.5rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    @keyframes zoomIn {
+      to {
+        transform: scale(1) rotate(0deg);
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Team Hackathon</h1>
-    <p>Une équipe passionnée (de bras cassés) mais qui aiment les défis (pas sûr)</p>
-  </header>
+<header>
+  <h1>Team Hackathon</h1>
+  <p>Une équipe passionnée par l’informatique</p>
+</header>
 
-  <!-- ÉQUIPE -->
-  <section>
-    <div class="container">
-      <h2 class="section-title">Notre équipe</h2>
+<!-- ===== ÉQUIPE ===== -->
+<section>
+  <div class="container">
+    <h2 class="section-title">Notre équipe</h2>
 
-      <div class="team">
+    <div class="team">
 
-        <div class="card">
-          <h3>Julien Brouillac</h3>
-          <div class="role">Développeur</div>
-          <div class="links">
-            <a class="linkedin" href="https://www.linkedin.com/in/julien-brouillac" target="_blank">LinkedIn</a>
-            <a class="portfolio" href="https://julienbrouillac-portfolio.com" target="_blank">Portfolio</a>
-          </div>
-          <p>
-            Spécialisé dans le développement, Julien a été sacré meilleur développeur
-            d'Europe après le drame de Jian Tan avec la faille xz.
-          </p>
+      <div class="card">
+        <div class="image-wrapper" onclick="openOverlay(this)">
+          <img src="julien_brouillac.jpg" alt="Julien Brouillac">
         </div>
-
-        <div class="card">
-          <h3>Timéo Laubignat</h3>
-          <div class="role">DevOps</div>
-          <div class="links">
-            <a class="linkedin" href="https://www.linkedin.com/in/timeo-laubignat" target="_blank">LinkedIn</a>
-            <a class="portfolio" href="https://timeolaubignat-portfolio.com" target="_blank">Portfolio</a>
-          </div>
-          <p>
-            Expert en automatisation, déploiement et infrastructure, Timéo sait
-            comment parler aux machines virtuelles.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Chahé Papazian</h3>
-          <div class="role">Chef de projet</div>
-          <div class="links">
-            <a class="linkedin" href="https://www.linkedin.com/in/chahe-papazian" target="_blank">LinkedIn</a>
-            <a class="portfolio" href="https://chahepapazian-portfolio.com" target="_blank">Portfolio</a>
-          </div>
-          <p>
-            Responsable de la coordination et de la vision globale, Chahé veille
-            au respect des délais et de la cohésion de l'équipe.
-          </p>
-        </div>
-
+        <h3>Julien Brouillac</h3>
+        <div class="role">Développeur</div>
+        <p>Développement web et sécurité applicative.</p>
       </div>
-    </div>
-  </section>
 
-  <!-- VEILLE TECHNO -->
-  <section class="veille-section">
-    <div class="container">
-      <h2 class="section-title">Veille technologique – BTS SIO</h2>
-
-      <div class="veille-grid">
-
-        <div class="veille-card">
-          <h3>Développement & Sécurité</h3>
-          <p>
-            Veille axée sur les frameworks modernes, l’intelligence artificielle,
-            la sécurité applicative et l’open-source.
-          </p>
-          <a href="https://github.com/collections/machine-learning" target="_blank">
-            Accéder à la veille
-          </a>
+      <div class="card">
+        <div class="image-wrapper" onclick="openOverlay(this)">
+          <img src="timeo_laubignat.jpg" alt="Timéo Laubignat">
         </div>
-
-        <div class="veille-card">
-          <h3>DevOps, Cloud & CI/CD</h3>
-          <p>
-            Suivi des technologies cloud natives, conteneurisation, automatisation
-            et cybersécurité des infrastructures.
-          </p>
-          <a href="https://www.cncf.io/blog/" target="_blank">
-            Accéder à la veille
-          </a>
-        </div>
-
-        <div class="veille-card">
-          <h3>Gestion de projet & Agile</h3>
-          <p>
-            Méthodes agiles, outils collaboratifs, organisation d’équipe et
-            bonnes pratiques de gestion de projet informatique.
-          </p>
-          <a href="https://www.atlassian.com/agile" target="_blank">
-            Accéder à la veille
-          </a>
-        </div>
-
+        <h3>Timéo Laubignat</h3>
+        <div class="role">DevOps</div>
+        <p>Infrastructure, cloud et automatisation.</p>
       </div>
-    </div>
-  </section>
 
-  <footer>
-    © 2026 – Team Hackathon
-  </footer>
+      <div class="card">
+        <div class="image-wrapper" onclick="openOverlay(this)">
+          <img src="chahe_papazian.jpg" alt="Chahé Papazian">
+        </div>
+        <h3>Chahé Papazian</h3>
+        <div class="role">Chef de projet</div>
+        <p>Gestion de projet et méthodes agiles.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== VEILLE TECHNO ===== -->
+<section class="veille-section">
+  <div class="container">
+    <h2 class="section-title">Veille technologique – BTS SIO</h2>
+
+    <div class="veille-grid">
+
+      <div class="veille-card">
+        <h3>Julien – Sécurité applicative</h3>
+        <p>Veille sur les failles web et les bonnes pratiques de sécurité.</p>
+        <a href="https://owasp.org/www-project-top-ten/" target="_blank">
+          OWASP Top 10
+        </a>
+      </div>
+
+      <div class="veille-card">
+        <h3>Timéo – Cloud & DevOps</h3>
+        <p>Veille sur les technologies cloud natives et DevOps.</p>
+        <a href="https://www.cncf.io/blog/" target="_blank">
+          CNCF Blog
+        </a>
+      </div>
+
+      <div class="veille-card">
+        <h3>Chahé – Gestion de projet</h3>
+        <p>Veille sur les méthodes agiles et l’organisation IT.</p>
+        <a href="https://www.atlassian.com/agile" target="_blank">
+          Atlassian Agile
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 – Team Hackathon
+</footer>
+
+<!-- OVERLAY -->
+<div id="overlay" onclick="closeOverlay()">
+  <div class="overlay-image">
+    <span class="close-btn">✕</span>
+  </div>
+</div>
+
+<script>
+  function openOverlay(element) {
+    const img = element.querySelector("img").src;
+    const overlay = document.getElementById("overlay");
+    overlay.querySelector(".overlay-image").style.backgroundImage = `url(${img})`;
+    overlay.classList.add("active");
+  }
+
+  function closeOverlay() {
+    document.getElementById("overlay").classList.remove("active");
+  }
+</script>
 
 </body>
 </html>
