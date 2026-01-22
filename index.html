@@ -69,6 +69,23 @@
       box-shadow: 0 30px 55px rgba(0, 0, 0, 0.6);
     }
 
+    .linkedin,
+    .portfolio {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .linkedin {
+      color: #0a66c2;
+    }
+    .linkedin:hover {
+      text-decoration: underline;
+      color: #4aa3ff;
+    }
+    .portfolio {
+      color: #ffdd00;
+    }
     /* ===== IMAGES ===== */
     .image-wrapper {
       margin-bottom: 25px;
@@ -225,6 +242,12 @@
         </div>
         <h3>Julien Brouillac</h3>
         <div class="role">Développeur</div>
+        <a class="linkedin" href="https://www.linkedin.com/in/julien-brouillac" target="_blank">
+            Voir le LinkedIn
+          </a><br>
+          <a class="portfolio" href="https://julienbrouillac-portfolio.com" target="_blank">
+            Voir le Portfolio
+          </a>
         <p>Développement web et sécurité applicative.</p>
       </div>
 
@@ -233,6 +256,12 @@
           <img src="timeo_laubignat.jpg" alt="Timéo Laubignat">
         </div>
         <h3>Timéo Laubignat</h3>
+        <a class="linkedin" href="https://www.linkedin.com/in/timeo-laubignat" target="_blank">
+            Voir le LinkedIn
+          </a><br>
+          <a class="portfolio" href="https://timeolaubignat-portfolio.com" target="_blank">
+            Voir le Portfolio
+          </a>
         <div class="role">DevOps</div>
         <p>Infrastructure, cloud et automatisation.</p>
       </div>
@@ -243,6 +272,12 @@
         </div>
         <h3>Chahé Papazian</h3>
         <div class="role">Chef de projet</div>
+        <a class="linkedin" href="https://www.linkedin.com/in/chahe-papazian" target="_blank">
+            Voir le LinkedIn
+          </a><br>
+          <a class="portfolio" href="https://chahepapazian-portfolio.com" target="_blank">
+            Voir le Portfolio
+          </a>
         <p>Gestion de projet et méthodes agiles.</p>
       </div>
 
@@ -307,6 +342,7 @@
   function closeOverlay() {
     document.getElementById("overlay").classList.remove("active");
   }
+  
 </script>
 
 </body>
